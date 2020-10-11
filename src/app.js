@@ -63,19 +63,23 @@ app.get('/weather',(req , res) =>{
         location:location
     }
     console.log("**********************")
-    forcast(locationData ,(error,{descriptions,temperature,feelslike}) =>{
+    forcast(locationData ,(error,{descriptions,temperature,feelslike,windspeed}) =>{
         if(error){
             return res.send(error)
         }
-    console.log(locationData.location)
-    console.log( descriptions + ' It is currently ' + temperature + ' degress out. There is a ' + feelslike + '% chance of rain.')
-    res.send ({ 
-        descriptions,
-        location,
-        temperature,
-        feelslike,
-        address:req.query.address
-            })
+        else{
+
+            console.log(locationData.location)
+
+            const weatherDetails= descriptions + ' It is currently ' + temperature + ' degress out. There is a ' + feelslike + '% chance of rain.And with a wind speed of ' + windspeed + "."
+            console.log("weatherDetails:" + weatherDetails)
+            return res.send(
+                {
+                    weatherDetails,
+                    location
+                    
+                })
+        }          
         })
     })
  

@@ -18,7 +18,8 @@ const url ='http://api.weatherstack.com/current?access_key=2a27b42b15929ffb91ed7
         weatherParameter ={
             descriptions,
             temperature,
-            feelslike
+            feelslike,
+            windspeed:body.current.wind_speed
         }
         callback(undefined,weatherParameter )
             } 

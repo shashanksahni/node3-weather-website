@@ -69,10 +69,12 @@ console.log('before URL')
                    console.log(data)    
             } else{
                 console.log("********************")
-                console.log(data)
-                messageOne.textContent= "Temperature of the loccation is " + data.temperature + " Feel like Temperature is "  + data.feelslike
-                messageTwo.textContent=data.location
-                console.log(data.location)
+                console.log("data" + data)
+                messageOne.textContent= data.location
+                messageTwo.textContent=data.weatherDetails 
+
+                console.log("********************")
+               // console.log(data.location)
             }
         }
         )}).catch((error) => {
